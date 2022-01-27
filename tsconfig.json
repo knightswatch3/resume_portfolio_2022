@@ -1,22 +1,17 @@
 {
     "compilerOptions": {
-        "module": "esNext",
-        "target": "esNext",
-        "allowJs": true,
-        "skipLibCheck": false,
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "resolveJsonModule": true,
-        "noImplicitAny": false,
-        "sourceMap": false,
-        "jsx": "react",
-        "allowSyntheticDefaultImports": true
-    },
-    "exclude": ["./node_modules"],
-    "paths":{
-        "express": ["./node_modules/express/lib/express"]
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "react"
     },
     "include": ["src"]
-}
+  }
