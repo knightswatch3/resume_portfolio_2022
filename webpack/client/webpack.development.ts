@@ -4,7 +4,7 @@ import baseConfiguration from "./webpack.base"
 const config : Configuration = Object.assign({
         mode:"development",
         devServer:{
-            static: path.join("./build"),
+            static: path.join("./public"),
             compress: true,
             port: 4001
         },

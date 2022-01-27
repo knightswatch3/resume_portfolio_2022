@@ -1,12 +1,9 @@
 import path from "path" 
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
-import { Configuration as WebpackConfiguration } from "webpack";
+import { Configuration } from "webpack";
 import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin"; 
 
-interface Configuration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration;
-}
 const config : Configuration = { 
     entry : {
         main: path.resolve(__dirname, "../../src/client/index.tsx")
@@ -40,7 +37,7 @@ const config : Configuration = {
         new ForkTsCheckerWebpackPlugin({
             async: false,
             eslint:{
-                files: "./src/**/*"
+                files: "./src/client/**/*"
             }
         }),
         new HtmlWebpackPlugin({

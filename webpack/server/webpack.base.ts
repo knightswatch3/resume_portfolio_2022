@@ -1,18 +1,14 @@
 import path from "path" 
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
-import { Configuration as WebpackConfiguration } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
-import HtmlWebpackPlugin from "html-webpack-plugin"; 
-
-interface Configuration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration;
-}
+import { Configuration } from "webpack";
+ 
+ 
 const config : Configuration = { 
     entry : {
-        main: path.resolve(__dirname, "../../src/client/index.tsx")
+        main: path.resolve(__dirname, "../../src/server/index.ts")
     },
     output: {
-        filename: "[name]-client-bundle.js",
+        filename: "[name]-server-bundle.js",
         path: path.join(__dirname, "../../public/build")
     },
     module:{
@@ -30,23 +26,22 @@ const config : Configuration = {
                         ]
                     }
                 }
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
             }
         ]
     },
     resolve:{
-        extensions: [".tsx",".ts",".js"]
+        extensions: [".ts",".js"]
     },
     plugins:[
         new ForkTsCheckerWebpackPlugin({
             async: false,
             eslint:{
-                files: "./src/**/*"
+                files: "./src/server/**/*"
             }
-        }),
-        new HtmlWebpackPlugin({
-            template: "./public/index.html",
-            title: "PORTFOLIO",
-            inject: "body"
         })
     ]
 }
